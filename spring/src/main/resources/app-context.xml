@@ -7,8 +7,28 @@
 		 http://www.springframework.org/schema/context
 		 http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
-    <bean id="helloSpring" class="com.gavin.hellospring.HelloSpring" >
+    <!-- 最基础的bean -->
+    <bean id="helloWorld" class="com.gavin.hello.bean.HelloWorld"/>
+
+    <!-- 带属性的bean -->
+    <bean id="helloSpring" class="com.gavin.hello.bean.HelloSpring" >
          <property name="message" value="Hello Spring!"/>
     </bean>
+
+
+    <!-- 以下方法要注释，防止测试时候影响效果-->
+    <!-- 使用构造器实例化-->
+     <bean id="userBean1" class="com.gavin.hello.beanfactoy.UserBean" lazy-init="true"/>
+    <!-- 使用静态工厂方法实例化-->
+    <bean id="userBean2" class="com.gavin.hello.beanfactoy.BeanFactory" factory-method="userBeanService" lazy-init="true"/>
+    <!-- 使用实例工厂方法实例化-->
+    <bean id="beanFactory" class="com.gavin.hello.beanfactoy.BeanFactory" />
+    <bean id="userBean3" factory-bean="beanFactory" factory-method="getUserBeanService" lazy-init="true"/>
+
+    <!-- 延迟加载,默认不是延时加载-->
+    <bean id="userBean" class="com.gavin.hello.beanfactoy.UserBean"  lazy-init="true" scope="prototype" />
+
+    <!-- 初始化方法和销毁方法-->
+    <bean id="initDestoryBean" class="com.gavin.hello.bean.InitDestroyBean" init-method="init" destroy-method="destroy"/>
 
 </beans>

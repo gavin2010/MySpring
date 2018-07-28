@@ -1,4 +1,4 @@
-package com.gavin.hellospring;
+package com.gavin.hello.bean;
 
 public class HelloSpring {
     private String message;
