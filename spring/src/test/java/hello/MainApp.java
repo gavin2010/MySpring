@@ -1,14 +1,21 @@
 package hello;
 
+import com.gavin.hello.basetype.ListBean;
+import com.gavin.hello.basetype.MapBean;
+import com.gavin.hello.basetype.PropertiesBean;
+import com.gavin.hello.basetype.SetBean;
 import com.gavin.hello.bean.HelloSpring;
 import com.gavin.hello.bean.HelloWorld;
 import com.gavin.hello.bean.InitDestroyBean;
 import com.gavin.hello.beanfactoy.UserBean;
+import com.gavin.hello.propertyinspect.Fruit;
 import com.gavin.hello.writespring.MySpring;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
+
+import java.util.Set;
 
 public class MainApp {
     private ApplicationContext getApplicationContext(){
@@ -56,6 +63,7 @@ public class MainApp {
 
     @Test
     public void testLazyInit(){
+        //验证延迟加载
         ApplicationContext context = getApplicationContext();
         System.out.println("获取上下文……");
         UserBean bean = (UserBean)context.getBean("userBean");
@@ -79,4 +87,38 @@ public class MainApp {
         bean.destroy();
     }
 
+    @Test
+    public void testSetBean(){
+        SetBean setBean = (SetBean)getApplicationContext().getBean("setBean");
+        System.out.println(setBean.getSets());
+    }
+    @Test
+    public void testListBean(){
+        ListBean listBean = (ListBean)getApplicationContext().getBean("listBean");
+        System.out.println(listBean.getLists());
+    }
+    @Test
+    public void testPropertiesBean(){
+        PropertiesBean propertiesBean = (PropertiesBean)getApplicationContext().getBean("propertiesBean");
+        System.out.println(propertiesBean.getProperties());
+    }
+    @Test
+    public void testMapBean(){
+        MapBean mapBean = (MapBean)getApplicationContext().getBean("mapBean");
+        System.out.println(mapBean.getMaps());
+    }
+
+    @Test
+    public void testPropertyInspect(){
+        ApplicationContext context = getApplicationContext();
+       /* Fruit fruit1 = (Fruit)context.getBean("fruit1");
+        System.out.println(fruit1.getApple());*/
+
+  /*      Fruit fruit2 = (Fruit)context.getBean("fruit2");
+        System.out.println(fruit2.getApple());
+*/
+        //@Resource注解配置
+        Fruit fruit = (Fruit)context.getBean("fruit");
+        System.out.println(fruit.getApple());
+    }
 }
