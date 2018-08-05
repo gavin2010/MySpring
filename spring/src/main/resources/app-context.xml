@@ -2,19 +2,28 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 	         http://www.springframework.org/schema/beans/spring-beans.xsd
+		 http://www.springframework.org/schema/aop
+		 http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
 		 http://www.springframework.org/schema/context
 		 http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     <!-- 开启注解配置-->
     <context:annotation-config/>
-    <!-- 基本bean的配置 -->
-    <import resource="classpath:spring/spring-basebeanconfig.xml"/>
-    <!-- 属性注入 注解配置 -->
-    <import resource="classpath:spring/spring-annotationconfig.xml"/>
-    <!--抽象模板使用-->
-    <import resource="classpath:spring/spring-abstractconfig.xml"/>
-    <!--自定义编辑器-->
-    <import resource="classpath:spring/spring-editorsupportconfig.xml"/>
+    <!-- 开启扫描bean组件-->
+    <context:component-scan base-package="com.gavin.ioc,com.gavin.aop"/>
+
+    <!-- 开启aop的注解配置-->
+    <aop:aspectj-autoproxy/>
+
+    <!-- ioc的相关配置 -->
+    <import resource="classpath:spring/spring-iocconfig.xml"/>
+
+    <!-- aop的相关配置 -->
+    <import resource="classpath:spring/spring-aopconfig.xml"/>
+
+
+
 
 </beans>

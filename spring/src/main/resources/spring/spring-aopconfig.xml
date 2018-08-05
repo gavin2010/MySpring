@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	         http://www.springframework.org/schema/beans/spring-beans.xsd
+		 http://www.springframework.org/schema/context
+		 http://www.springframework.org/schema/context/spring-context-4.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="sayHello" class="com.gavin.aop.xmlconfig.ApoSayHello"/>
+
+    <bean id="serciceAspect" class="com.gavin.aop.xmlconfig.SerciceAspect"> </bean>
+    <aop:config>
+        <aop:aspect id="myaspect" ref="serciceAspect">
+            <aop:pointcut id="mycut" expression="execution(* com.gavin.aop.xmlconfig.ApoSayHello.*(..))" />
+            <aop:before pointcut-ref="mycut" method="doBefore"/>
+            <aop:after-returning pointcut-ref="mycut" method="doAfterReturning"/>
+            <aop:after pointcut-ref="mycut" method="doAfter"/>
+            <aop:after-throwing pointcut-ref="mycut" method="doAfterThrowing"/>
+            <aop:around  pointcut-ref="mycut" method="doAround" />
+        </aop:aspect>
+    </aop:config>
+
+
+
+</beans>
