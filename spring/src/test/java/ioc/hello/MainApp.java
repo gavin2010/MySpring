@@ -12,6 +12,7 @@ import com.gavin.ioc.hello.propertyinspect.Fruit;
 import com.gavin.ioc.hello.writespring.MySpring;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MainApp {

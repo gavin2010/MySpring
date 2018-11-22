@@ -26,6 +26,7 @@
     <bean id="beanFactory" class="com.gavin.ioc.hello.beanfactoy.BeanFactory" />
     <bean id="userBean3" factory-bean="beanFactory" factory-method="getUserBeanService" lazy-init="true"/>
 
+
     <!-- 延迟加载,默认不是延时加载-->
     <bean id="userBean" class="com.gavin.ioc.hello.beanfactoy.UserBean" lazy-init="true" scope="prototype" />
     <!-- 初始化方法和销毁方法-->
