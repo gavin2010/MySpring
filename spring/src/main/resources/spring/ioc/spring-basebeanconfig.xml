@@ -9,33 +9,33 @@
 
 
     <!-- 最基础的bean -->
-    <bean id="helloWorld" class="com.gavin.ioc.hello.bean.HelloWorld"/>
+    <bean id="helloWorld" class="com.gavin.ioc.a1_hello.bean.HelloWorld"/>
 
     <!-- 带属性的bean -->
-    <bean id="helloSpring" class="com.gavin.ioc.hello.bean.HelloSpring" >
+    <bean id="helloSpring" class="com.gavin.ioc.a1_hello.bean.HelloSpring" >
          <property name="message" value="Hello Spring!"/>
     </bean>
 
 
     <!-- 以下方法要注释，防止测试时候影响效果-->
     <!-- 使用构造器实例化-->
-    <bean id="userBean1" class="com.gavin.ioc.hello.beanfactoy.UserBean" lazy-init="true"/>
+    <bean id="userBean1" class="com.gavin.ioc.a1_hello.beanfactoy.UserBean" lazy-init="true"/>
     <!-- 使用静态工厂方法实例化-->
-    <bean id="userBean2" class="com.gavin.ioc.hello.beanfactoy.BeanFactory" factory-method="userBeanService" lazy-init="true"/>
+    <bean id="userBean2" class="com.gavin.ioc.a1_hello.beanfactoy.BeanFactory" factory-method="userBeanService" lazy-init="true"/>
     <!-- 使用实例工厂方法实例化-->
-    <bean id="beanFactory" class="com.gavin.ioc.hello.beanfactoy.BeanFactory" />
+    <bean id="beanFactory" class="com.gavin.ioc.a1_hello.beanfactoy.BeanFactory" />
     <bean id="userBean3" factory-bean="beanFactory" factory-method="getUserBeanService" lazy-init="true"/>
 
 
     <!-- 延迟加载,默认不是延时加载-->
-    <bean id="userBean" class="com.gavin.ioc.hello.beanfactoy.UserBean" lazy-init="true" scope="prototype" />
+    <bean id="userBean" class="com.gavin.ioc.a1_hello.beanfactoy.UserBean" lazy-init="true" scope="prototype" />
     <!-- 初始化方法和销毁方法-->
-    <bean id="initDestoryBean" class="com.gavin.ioc.hello.bean.InitDestroyBean" lazy-init="true" init-method="init" destroy-method="destroy"/>
+    <bean id="initDestoryBean" class="com.gavin.ioc.a1_hello.bean.InitDestroyBean" lazy-init="true" init-method="init" destroy-method="destroy"/>
 
 
 
     <!-- set类型装载 -->
-    <bean id="setBean" class="com.gavin.ioc.hello.basetype.SetBean">
+    <bean id="setBean" class="com.gavin.ioc.a1_hello.basetype.SetBean">
         <property name="sets">
             <set>
                 <value>set1</value>
@@ -45,7 +45,7 @@
         </property>
     </bean>
     <!-- List类型加载 -->
-    <bean id="listBean" class="com.gavin.ioc.hello.basetype.ListBean">
+    <bean id="listBean" class="com.gavin.ioc.a1_hello.basetype.ListBean">
         <property name="lists">
             <list>
                 <value>list1</value>
@@ -55,7 +55,7 @@
         </property>
     </bean>
     <!--properties类型加载-->
-    <bean id="propertiesBean" class="com.gavin.ioc.hello.basetype.PropertiesBean">
+    <bean id="propertiesBean" class="com.gavin.ioc.a1_hello.basetype.PropertiesBean">
         <property name="properties">
             <props>
                 <prop key="key1">properties1</prop>
@@ -65,7 +65,7 @@
         </property>
     </bean>
     <!-- Map类型bean加载-->
-    <bean id="mapBean" class="com.gavin.ioc.hello.basetype.MapBean">
+    <bean id="mapBean" class="com.gavin.ioc.a1_hello.basetype.MapBean">
         <property name="maps">
             <map>
                 <entry key="m1" value="map1"> </entry>

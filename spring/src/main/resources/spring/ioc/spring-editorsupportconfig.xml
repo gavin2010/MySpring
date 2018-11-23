@@ -7,14 +7,14 @@
 		 http://www.springframework.org/schema/context
 		 http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
-    <bean id="dateBean" class="com.gavin.ioc.editorsupport.DateBean">
+    <bean id="dateBean" class="com.gavin.ioc.a4_editorsupport.DateBean">
         <property name="date" value="2018-07-21"/>
     </bean>
     <bean id="customEditorConfigurer" class="org.springframework.beans.factory.config.CustomEditorConfigurer">
         <property name="customEditors">
             <map>
                 <!-- 可以这样配置，但是不嫩自定义日期i格式-->
-                <entry key="java.util.Date" value="com.gavin.ioc.editorsupport.DatePropertyEditor"/>
+                <entry key="java.util.Date" value="com.gavin.ioc.a4_editorsupport.DatePropertyEditor"/>
             </map>
         </property>
     </bean>
@@ -24,7 +24,7 @@
     <bean id="simpleFormat" class="java.text.SimpleDateFormat">
         <constructor-arg value="yyyy/MM/dd"/>
     </bean>
-    <bean id="dateBean1" class="com.gavin.ioc.editorsupport.DateBean" >
+    <bean id="dateBean1" class="com.gavin.ioc.a4_editorsupport.DateBean" >
         <property name="date">
             <bean factory-bean="simpleFormat" factory-method="parse">
                 <constructor-arg value="2018/06/15"/>

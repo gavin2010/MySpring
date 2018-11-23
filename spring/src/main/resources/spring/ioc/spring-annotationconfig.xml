@@ -8,17 +8,17 @@
 		 http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
     <!-- 属性的注入 -->
-    <bean id="apple" class="com.gavin.ioc.hello.propertyinspect.Apple"/>
+    <bean id="apple" class="com.gavin.ioc.a1_hello.propertyinspect.Apple"/>
     <!-- 1.属性注入-->
-    <bean id="fruit1" class="com.gavin.ioc.hello.propertyinspect.Fruit">
+    <bean id="fruit1" class="com.gavin.ioc.a1_hello.propertyinspect.Fruit">
         <property name="apple" ref="apple"/>
     </bean>
     <!--2.构造方法注入-->
-    <bean id="fruit2" class="com.gavin.ioc.hello.propertyinspect.Fruit">
+    <bean id="fruit2" class="com.gavin.ioc.a1_hello.propertyinspect.Fruit">
         <constructor-arg index="0" ref="apple"/>
         <constructor-arg index="1" value="2"/>
     </bean>
     <!--3. 注解注入 -->
-    <bean id="fruit" class="com.gavin.ioc.hello.propertyinspect.Fruit"/>
+    <bean id="fruit" class="com.gavin.ioc.a1_hello.propertyinspect.Fruit"/>
 
 </beans>
