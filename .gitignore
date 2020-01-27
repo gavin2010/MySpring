@@ -1,0 +1,4 @@
+
+*.class
+/spring/target
+/.idea
