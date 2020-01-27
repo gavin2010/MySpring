@@ -15,11 +15,11 @@
         </property>
     </bean>
 
-    <bean id="userInfoBean1" class="com.gavin.ioc.abstractbean.UserInfoBean" parent="userBeanAbstract">
+    <bean id="userInfoBean1" class="com.gavin.ioc.a3_abstractbean.UserInfoBean" parent="userBeanAbstract">
         <property name="passwd" value="123" />
     </bean>
 
-    <bean id="userInfoBean2" class="com.gavin.ioc.abstractbean.UserInfoBean" parent="userBeanAbstract">
+    <bean id="userInfoBean2" class="com.gavin.ioc.a3_abstractbean.UserInfoBean" parent="userBeanAbstract">
         <property name="passwd" value="abc" />
     </bean>
 

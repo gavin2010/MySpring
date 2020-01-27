@@ -17,6 +17,9 @@
     <import resource="classpath:spring/ioc/spring-editorsupportconfig.xml"/>
     <!--autowire装配属性-->
     <import resource="classpath:spring/ioc/spring-autowireconfig.xml"/>
+    <!--required装配属性-->
+    <import resource="classpath:spring/ioc/spring-requiredconfig.xml"/>
+
 
 
 </beans>
