@@ -12,6 +12,7 @@ import com.gavin.ioc.a1_hello.propertyinspect.Fruit;
 import com.gavin.ioc.a1_hello.writespring.MySpring;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MainApp {
@@ -81,7 +82,8 @@ public class MainApp {
         InitDestroyBean bean = (InitDestroyBean)context.getBean("initDestoryBean");
 
         //必须显示调用destroy方法，才会触发消费方法
-        bean.destroy();
+       // bean.destroy();
+        ((AbstractApplicationContext)context).registerShutdownHook();
     }
 
     @Test

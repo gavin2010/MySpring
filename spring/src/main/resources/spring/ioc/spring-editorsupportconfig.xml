@@ -13,20 +13,32 @@
     <bean id="customEditorConfigurer" class="org.springframework.beans.factory.config.CustomEditorConfigurer">
         <property name="customEditors">
             <map>
-                <!-- 可以这样配置，但是不嫩自定义日期i格式-->
+                <!-- 可以这样配置，但是不能自定义日期格式-->
                 <entry key="java.util.Date" value="com.gavin.ioc.a4_editorsupport.DatePropertyEditor"/>
             </map>
         </property>
     </bean>
 
 
-    <!-- 利用SimpleDateFormat-->
+    <!-- 利用SimpleDateFormat
+    <bean id="simpleFormat" class="java.text.SimpleDateFormat">
+        <constructor-arg value="yyyy/MM/dd"/>
+    </bean>
+    <bean id="str2Date" factory-bean="simpleFormat" factory-method="parse">
+        <constructor-arg value="2018/06/15"/>
+    </bean>
+    <bean id="dateBean1" class="com.gavin.ioc.a4_editorsupport.DateBean" >
+        <property name="date" ref="str2Date">
+        </property>
+    </bean>
+    -->
+
     <bean id="simpleFormat" class="java.text.SimpleDateFormat">
         <constructor-arg value="yyyy/MM/dd"/>
     </bean>
     <bean id="dateBean1" class="com.gavin.ioc.a4_editorsupport.DateBean" >
         <property name="date">
-            <bean factory-bean="simpleFormat" factory-method="parse">
+            <bean id="str2Date" factory-bean="simpleFormat" factory-method="parse">
                 <constructor-arg value="2018/06/15"/>
             </bean>
         </property>

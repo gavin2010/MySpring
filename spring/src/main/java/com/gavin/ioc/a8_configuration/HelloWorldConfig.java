@@ -4,9 +4,11 @@ import com.gavin.ioc.a1_hello.bean.HelloWorld;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.Scope;
 
 @Configuration
-@Import(ConfigA.class)
+@Import(ConfigA.class) //引入之后  ApplicationContext context = new AnnotationConfigApplicationContext(HelloWorldConfig.class) 可以直接获取引入的bean;
+
 public class HelloWorldConfig {
     /**
      *
@@ -21,4 +23,5 @@ public class HelloWorldConfig {
     public HelloWorld myHelloWorld(){
         return new HelloWorld();
     }
+
 }

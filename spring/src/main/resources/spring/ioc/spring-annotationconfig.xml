@@ -21,4 +21,5 @@
     <!--3. 注解注入 -->
     <bean id="fruit" class="com.gavin.ioc.a1_hello.propertyinspect.Fruit"/>
 
+    <bean id="personAction" class="com.gavin.ioc.a2_componentscan.action.PersonAction" init-method="myInit" destroy-method="myDestroy" lazy-init="true"/>
 </beans>

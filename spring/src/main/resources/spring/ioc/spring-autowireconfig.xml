@@ -7,8 +7,12 @@
 		 http://www.springframework.org/schema/context
 		 http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
+
     <bean id="book" class="com.gavin.ioc.a5_autowire.Book">
         <property name="bookName" value="语文"/>
+    </bean>
+    <bean id="book1" class="com.gavin.ioc.a5_autowire.Book">
+        <property name="bookName" value="数学"/>
     </bean>
 <!--    <bean id="person" class="Person">
         <property name="book" ref="book"/>
@@ -16,9 +20,7 @@
 
 
 
-    <bean id="book1" class="com.gavin.ioc.a5_autowire.Book">
-        <property name="bookName" value="数学"/>
-    </bean>
+
     <bean id="person1" class="com.gavin.ioc.a5_autowire.Person"/>
 
 

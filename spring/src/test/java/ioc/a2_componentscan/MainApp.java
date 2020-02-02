@@ -3,6 +3,7 @@ package ioc.a2_componentscan;
 import com.gavin.ioc.a2_componentscan.action.PersonAction;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MainApp {
@@ -27,9 +28,9 @@ public class MainApp {
         //@Repository放在类前,默认bean id就是类名(首字母小写)
         /*IPersonDao personDao = (IPersonDao)context.getBean("personDaoImpl");
         personDao.show();*/
-
+        System.out.println("获取applicationContext");
         PersonAction personAction = (PersonAction)context.getBean("personAction");
         personAction.show();
-        personAction.destroy();
+        ((AbstractApplicationContext)context).registerShutdownHook();
     }
 }

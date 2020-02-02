@@ -17,7 +17,7 @@
             <aop:before pointcut-ref="mycut" method="doBefore"/>
             <aop:after-returning pointcut-ref="mycut" method="doAfterReturning"/>
             <aop:after pointcut-ref="mycut" method="doAfter"/>
-            <aop:after-throwing pointcut-ref="mycut" method="doAfterThrowing"/>
+            <aop:after-throwing pointcut-ref="mycut" method="doAfterThrowing" />
             <aop:around  pointcut-ref="mycut" method="doAround" />
         </aop:aspect>
     </aop:config>

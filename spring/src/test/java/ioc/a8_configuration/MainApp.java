@@ -14,6 +14,11 @@ public class MainApp {
         ApplicationContext context = new ClassPathXmlApplicationContext("app-context.xml");
         HelloWorld helloWorld = (HelloWorld)context.getBean("myHelloWorld");
         helloWorld.sayhello();
+
+        //若HelloWorldConfig中没有添加@import注解，则下面代码也会执行
+        HelloWorld helloWorld1 = (HelloWorld)context.getBean("configAgetHelloWorld");
+        helloWorld1.sayhello();
+
     }
 
     @Test
@@ -22,6 +27,9 @@ public class MainApp {
     //    HelloWorld helloWorld =  context.getBean(HelloWorld.class);
         HelloWorld helloWorld = (HelloWorld)context.getBean("myHelloWorld");
         helloWorld.sayhello();
+        //若HelloWorldConfig中没有添加@import注解，则下面代码执行会报错
+        HelloWorld helloWorld1 = (HelloWorld)context.getBean("configAgetHelloWorld");
+        helloWorld1.sayhello();
     }
 
     @Test
@@ -29,8 +37,8 @@ public class MainApp {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
         context.register(HelloWorldConfig.class);
         context.refresh();//必须添加刷新操作
-        HelloWorld helloWorld =  context.getBean(HelloWorld.class);
-        //HelloWorld helloWorld = (HelloWorld)context.getBean("myHelloWorld");
+      //  HelloWorld helloWorld =  context.getBean(HelloWorld.class);
+        HelloWorld helloWorld = (HelloWorld)context.getBean("myHelloWorld");
         helloWorld.sayhello();
     }
 

@@ -4,7 +4,6 @@ import javax.annotation.Resource;
 
 public class Fruit {
     //@Resource默认是按照名称装配，找不到与名称匹配的bean时按类型装配
-
     @Resource(name="apple")
     Apple apple;
 
